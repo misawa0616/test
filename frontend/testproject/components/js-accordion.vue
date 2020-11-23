@@ -22,7 +22,7 @@
         <slot name="body"></slot>
       </div>
     </transition>
-    <div style="margin-bottom: 200px"></div>
+    <div style="margin-bottom: 300px"></div>
   </div>
 </template>
 

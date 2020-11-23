@@ -7,6 +7,9 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from axios.models import FormMaterial
+from json import JSONEncoder
+import json
+import logging
 
 
 class TestAxiosAPIView(APIView):
@@ -17,13 +20,29 @@ class TestAxiosAPIView(APIView):
     def get(self, request, *args, **kwargs):
         print('a')
         a = FormMaterial(
-            name="あ",
+            name="a",
             materials={
-                "あ": {
-                    "あ": "ありがとうねー1"
+                "a": {
+                    "a": "ありがとうねー"
                 }
             })
         a.save()
-        FormMaterial.objects.get(id=1)
+        # a = FormMaterial.objects.get(id=1)
+        # a = json.dumps({
+        #         "a": {
+        #             "a": "ありがとうねー"
+        #         }
+        #     }, ensure_ascii=False)
+        # print(vars(a))
+        return Response({'detail': _('Successfully confirmed email.')},
+                        status=status.HTTP_201_CREATED)
+
+
+class TestLogAPIView(APIView):
+
+    permission_classes = (AllowAny,)
+    allowed_methods = ('GET', 'HEAD')
+
+    def get(self, request, *args, **kwargs):
         return Response({'detail': _('Successfully confirmed email.')},
                         status=status.HTTP_201_CREATED)

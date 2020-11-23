@@ -12,7 +12,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
@@ -21,6 +21,8 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    { src: '~/plugins/datalist-polyfill.js', ssr: false },
+    // { src: '~/plugins/vue-simple-suggest.js', ssr: false }
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -32,9 +34,14 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
+    "@nuxtjs/axios",
   ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+  },
+  server: {
+    port: 3000, // デフォルト: 3000
+    host: '0.0.0.0' // デフォルト: localhost
   }
 }
