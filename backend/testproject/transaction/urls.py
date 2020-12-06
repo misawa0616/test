@@ -14,12 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from transaction import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('axios/', include('axios.urls')),
-    path('pdf/', include('pdf.urls')),
-    path('transaction/', include('transaction.urls')),
-    path('datetime/', include('datetimeobj.urls'))
+    path('', views.TestTransactionAPIView.as_view()),
 ]

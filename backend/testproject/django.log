@@ -1,2 +1,34 @@
+Watching for file changes with StatReloader
 Hello World!
-"GET /axios/test_logging HTTP/1.1" 201 5149
+Bad Request: /transaction/
+"GET /transaction/ HTTP/1.1" 400 5389
+C:\Users\takuma\Desktop\test\backend\testproject\transaction\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\takuma\Desktop\test\backend\testproject\transaction\views.py changed, reloading.
+Watching for file changes with StatReloader
+{'category': [ErrorDetail(string='This field is required.', code='required')]}
+Bad Request: /transaction/
+"GET /transaction/ HTTP/1.1" 400 5389
+{'category': [ErrorDetail(string='This field is required.', code='required')]}
+Bad Request: /transaction/
+"GET /transaction/ HTTP/1.1" 400 5389
+Not Found: /
+"GET / HTTP/1.1" 404 2359
+{'category': [ErrorDetail(string='This field is required.', code='required')]}
+Bad Request: /transaction/
+"GET /transaction/ HTTP/1.1" 400 5389
+{'category': [ErrorDetail(string='This field is required.', code='required')]}
+Bad Request: /transaction/
+"GET /transaction/ HTTP/1.1" 400 5389
+{'category': [ErrorDetail(string='This field is required.', code='required')]}
+Bad Request: /transaction/
+"GET /transaction/ HTTP/1.1" 400 5389
+{'category': [ErrorDetail(string='This field is required.', code='required')]}
+Bad Request: /transaction/
+"GET /transaction/ HTTP/1.1" 400 5389
+{'category': [ErrorDetail(string='This field is required.', code='required')]}
+Bad Request: /transaction/
+"GET /transaction/ HTTP/1.1" 400 5389
+{'category': [ErrorDetail(string='This field is required.', code='required')]}
+Bad Request: /transaction/
+"GET /transaction/ HTTP/1.1" 400 5389

@@ -32,6 +32,7 @@ const axios = axiosBase.create({
     "Content-Type": "application/json",
   },
 });
+import PDFJS from "pdfjs-dist";
 export default {};
 </script>
 

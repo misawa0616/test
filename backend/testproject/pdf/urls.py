@@ -18,5 +18,6 @@ from django.urls import path
 from pdf import views
 
 urlpatterns = [
-    path('', views.TestPdfAPIView.as_view()),
+    path('pdfrw/', views.TestPdfrwAPIView.as_view()),
+    path('pypdf2/', views.TestPyPDF2APIView.as_view()),
 ]
