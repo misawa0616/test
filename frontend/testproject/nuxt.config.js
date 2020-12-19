@@ -34,13 +34,14 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     "@nuxtjs/axios",
+    "@nuxtjs/proxy"
   ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
   },
-  server: {
-    port: 3000, // デフォルト: 3000
-    host: '0.0.0.0' // デフォルト: localhost
-  }
+  axios: {
+    baseURL: 'http://192.168.0.7:8000',
+    credentials: true,
+  },
 }

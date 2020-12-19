@@ -15,6 +15,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+}
 
 # Application definition
 
@@ -37,10 +42,11 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'axios.middleware.SimpleMiddleware'
 ]
 
 ROOT_URLCONF = 'testproject.urls'
@@ -124,6 +130,8 @@ CORS_ORIGIN_WHITELIST = (
     'http://192.168.0.7:3000',
 )
 
+CORS_ALLOW_CREDENTIALS = True
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -132,13 +140,13 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
         },
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.handlers.TimedRotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'django.log'),
-            'when': 'D',
-            'interval': 1
-        },
+        # 'file': {
+        #     'level': 'DEBUG',
+        #     'class': 'logging.handlers.TimedRotatingFileHandler',
+        #     'filename': os.path.join(BASE_DIR, 'django.log'),
+        #     'when': 'D',
+        #     'interval': 1
+        # },
     },
     'loggers': {
         # 'django.db.backends': {
@@ -146,7 +154,7 @@ LOGGING = {
         #     'level': 'DEBUG',
         # },
         'django': {
-            'handlers': ['file'],
+            'handlers': ['console'],
             'level': 'INFO',
         },
     },

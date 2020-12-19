@@ -21,5 +21,6 @@ urlpatterns = [
     path('axios/', include('axios.urls')),
     path('pdf/', include('pdf.urls')),
     path('transaction/', include('transaction.urls')),
-    path('datetime/', include('datetimeobj.urls'))
+    path('datetime/', include('datetimeobj.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 ]
