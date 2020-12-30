@@ -427,4 +427,5 @@ class TestPyPDF2APIView3(APIView):
         new = io.BytesIO()
         writer.write(new)
         new.seek(0)
+        print('finish')
         return FileResponse(new, as_attachment=True, filename='hello.pdf')
