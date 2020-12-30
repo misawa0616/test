@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b5888ed-2fa8-4378-8bb6-bab1c345ae1b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/testproject/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/testproject/components/js-accordion.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/testproject/components/js-accordion.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/testproject/nuxt.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/testproject/nuxt.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/testproject/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/testproject/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/testproject/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/testproject/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testproject/pdf/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/testproject/pdf/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,9 +37,9 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1604851968616">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1608911785284">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604851968616" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608911785284" />
   </component>
 </project>

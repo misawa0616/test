@@ -20,4 +20,6 @@ from pdf import views
 urlpatterns = [
     path('pdfrw/', views.TestPdfrwAPIView.as_view()),
     path('pypdf2/', views.TestPyPDF2APIView.as_view()),
+    path('pypdf2_2/', views.TestPyPDF2APIView2.as_view()),
+    path('pypdf2_3/', views.TestPyPDF2APIView3.as_view()),
 ]
