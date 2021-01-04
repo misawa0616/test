@@ -21,7 +21,11 @@
           GitHub
         </a>
       </div>
+<<<<<<< HEAD
       <div>01</div>
+=======
+      02
+>>>>>>> feature/02
     </div>
   </div>
 </template>
