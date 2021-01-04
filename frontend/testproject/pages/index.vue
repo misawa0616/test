@@ -22,7 +22,7 @@
         </a>
       </div>
       <div>01</div>
-      02
+      02 develop
     </div>
   </div>
 </template>
