@@ -3,7 +3,7 @@
     <input v-model="test" />
     <button @click="clickNext()">カナ文字チェック</button>
     {{ message }}
-    03
+    03 04
   </div>
 </template>
 <script>
