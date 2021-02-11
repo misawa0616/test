@@ -1,28 +1,71 @@
 <template>
-  <a @click="test()">a</a>
+  <div>
+    <template v-for="(test, key) in test_list">
+      <test :key="key" :test="test"></test>
+    </template>
+  </div>
 </template>
 
 <script>
-// const axiosBase = require("axios");
-// const axios = axiosBase.create({
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-// });
 export default {
-  methods: {
-    async test() {
-      let flag = false;
-      this.$axios
-        .post("axios/", { foo: "bar" })
-        .then((res) => {
-          flag = true;
-        })
-        .catch((e) => {
-          flag = false;
-        });
-    },
+  data() {
+    return {
+      // test_list: [{ key: [], contents: {} }],
+      test_list: [
+        {
+          key: [],
+          contents: {
+            actions: [
+              {
+                type: 1,
+                argument: [3, "last"],
+                position: [40, 40, 40, 9],
+              },
+            ],
+          },
+        },
+        {
+          key: [],
+          contents: {
+            methods: 1,
+            argument: [0, 3],
+            content_list: [
+              {
+                value: 1,
+                contents: {
+                  actions: [
+                    {
+                      type: 1,
+                      argument: [3, "last"],
+                      position: [40, 40, 40, 9],
+                    },
+                    {
+                      type: 2,
+                      argument: [3, "last"],
+                      position: [40, 40, 40, 9],
+                    },
+                  ],
+                },
+              },
+              {
+                value: 2,
+                contents: {
+                  actions: [
+                    {
+                      type: 1,
+                      argument: [3, "last"],
+                      position: [40, 40, 40, 9],
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        },
+      ],
+    };
   },
+  methods: {},
 };
 </script>
 
