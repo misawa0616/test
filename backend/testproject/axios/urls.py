@@ -19,5 +19,6 @@ from axios import views
 
 urlpatterns = [
     path('', views.TestAxiosAPIView.as_view()),
+    path('pdf/', views.TestPDFAPIView.as_view()),
     path('test_logging', views.TestLogAPIView.as_view()),
 ]

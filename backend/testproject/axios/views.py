@@ -51,3 +51,14 @@ class TestLogAPIView(APIView):
     def get(self, request, *args, **kwargs):
         return Response({'detail': _('Successfully confirmed email.')},
                         status=status.HTTP_201_CREATED)
+
+
+class TestPDFAPIView(APIView):
+
+    permission_classes = (AllowAny,)
+    allowed_methods = ('POST', 'HEAD')
+
+    def post(self, request, *args, **kwargs):
+        print(request.data)
+        return Response({'detail': _('Successfully confirmed email.')},
+                        status=status.HTTP_201_CREATED)
