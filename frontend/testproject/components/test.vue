@@ -1,20 +1,28 @@
 <template>
   <div :class="test2_function + classA">
-    <div v-if="Object.keys(test).includes('label')">
-      {{ test["label"] }}
-    </div>
     <button @click="$emit('delete-event')">削除</button>
-    <div v-if="Object.keys(test).includes('if_value')">
-      <input v-model="test['value']" />
+    <div v-if="Object.keys(content).includes('if_value')">
+      <input v-model="content['if_value']" />
+      <button @click="add_methods()">追加</button>
+      <template v-if="content['contents']">
+        <template v-if="content['contents'].length">
+          <test-list
+            :is_add="false"
+            :contents="content['contents']"
+            classA=""
+            @delete-event="delete_methods(index)"
+          ></test-list>
+        </template>
+      </template>
     </div>
-    <select name="horoscope" v-model="test1">
-      <option v-for="i in ['', 2, 3]" :key="i" :value="i">{{ i }}</option>
-    </select>
+    <div v-if="!Object.keys(content).includes('if_value')">
+      <select name="horoscope" v-model="test1">
+        <option v-for="i in ['', 2, 3]" :key="i" :value="i">{{ i }}</option>
+      </select>
+    </div>
     <template v-if="test1 == 2">
       <table>
-        <template
-          v-for="(test_argument, index) in test['contents']['argument']"
-        >
+        <template v-for="(test_argument, index) in content['argument']">
           <tr :key="index">
             <td>{{ test_argument.key_label }}</td>
             <td>
@@ -26,9 +34,7 @@
     </template>
     <template v-if="test1 == 3">
       <table>
-        <template
-          v-for="(test_argument, index) in test['contents']['argument']"
-        >
+        <template v-for="(test_argument, index) in content['argument']">
           <tr :key="index">
             <td>{{ test_argument.key_label }}</td>
             <td>
@@ -37,14 +43,16 @@
           </tr>
         </template>
       </table>
-      <button @click="add_methods()">追加</button>
-      <template v-for="(test_temp, index) in test['contents']['contents_list']">
-        <test
-          :test="test_temp"
-          classA=""
-          :key="temp_test_list[index]"
-          @delete-event="delete_methods(index)"
-        ></test>
+      <button @click="add_if_methods()">追加</button>
+      <template v-if="content['contents']">
+        <template v-if="content['contents'].length">
+          <test-list
+            :is_add="false"
+            :contents="content['contents']"
+            classA=""
+            @delete-event="delete_methods(index)"
+          ></test-list>
+        </template>
       </template>
     </template>
   </div>
@@ -53,22 +61,32 @@
 import count from "@/mixins/count.js";
 export default {
   mixins: [count],
-  name: "test",
-  props: ["test", "classA"],
+  components: {
+    testList: () => import("./test-list.vue"),
+  },
+  props: ["content", "classA"],
   data() {
     return { test1: "" };
   },
   methods: {
     add_methods() {
       this.add_temp();
-      this.test["contents"]["contents_list"].push({
-        if_value: 1,
-        contents: {},
+      this.content["contents"].push({
+        type: "",
+        argument: [],
+        contents: [],
+      });
+    },
+    add_if_methods() {
+      this.add_temp();
+      this.content["contents"].push({
+        if_value: "",
+        contents: [],
       });
     },
     delete_methods(index) {
       this.delete_temp(index);
-      this.test["contents"]["contents_list"].splice(index, 1);
+      this.content["contents"].splice(index, 1);
     },
   },
   computed: {
@@ -83,31 +101,27 @@ export default {
   watch: {
     test1: function (newValue) {
       if (newValue == "") {
-        this.test["contents"] = {
-          type: null,
-          contents: {},
-        };
+        this.content.type = null;
+        this.content.argument = [];
+        this.content.contents = [];
       }
       if (newValue == 2) {
-        this.test["contents"] = {
-          type: 2,
-          argument: [
-            { key_label: "キー", key_value: "" },
-            { key_label: "x軸", key_value: "" },
-            { key_label: "y軸", key_value: "" },
-          ],
-        };
+        this.content.type = 2;
+        this.content.argument = [
+          { key_label: "キー", key_value: "" },
+          { key_label: "x軸", key_value: "" },
+          { key_label: "y軸", key_value: "" },
+        ];
+        this.content.contents = [];
       }
       if (newValue == 3) {
-        this.test["contents"] = {
-          type: 3,
-          argument: [
-            { key_label: "キー", key_value: "" },
-            { key_label: "開始", key_value: "" },
-            { key_label: "終了", key_value: "" },
-          ],
-          contents_list: [],
-        };
+        this.content.type = 3;
+        this.content.argument = [
+          { key_label: "キー", key_value: "" },
+          { key_label: "開始", key_value: "" },
+          { key_label: "終了", key_value: "" },
+        ];
+        this.content.contents = [];
       }
     },
   },

@@ -1,12 +1,14 @@
 <template>
   <div class="test">
     <template v-for="(test, index) in test_list">
-      <test
+      {{ test.label }}
+      <test-list
+        :is_add="true"
         :key="temp_test_list[index]"
-        :test="test"
+        :contents="test['contents']"
         classA=" test123 test"
         @delete-event="delete_methods(index)"
-      ></test>
+      ></test-list>
     </template>
     <button @click="add_methods()">追加する</button>
     <input v-model="label" />
@@ -27,7 +29,7 @@ export default {
   methods: {
     add_methods() {
       this.add_temp();
-      this.test_list.push({ label: this.label, key: [], contents: {} });
+      this.test_list.push({ label: this.label, contents: [] });
     },
     delete_methods(index) {
       this.delete_temp(index);
