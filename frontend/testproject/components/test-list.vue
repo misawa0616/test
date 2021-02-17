@@ -1,14 +1,13 @@
 <template>
-  <div class="test">
+  <div class="">
     <template v-for="(content, index) in contents">
       <test
         :key="temp_test_list[index]"
         :content="content"
-        classA=" test123 test"
+        classA=""
         @delete-event="delete_methods(index)"
       ></test>
     </template>
-    <button @click="add_methods()" v-if="is_add">追加する</button>
   </div>
 </template>
 
@@ -19,7 +18,7 @@ export default {
   components: {
     test: () => import("./test.vue"),
   },
-  props: ["contents", "classA", "is_add"],
+  props: ["contents", "classA", "is_root"],
   methods: {
     add_methods() {
       this.add_temp();
@@ -32,6 +31,10 @@ export default {
     delete_methods(index) {
       this.delete_temp(index);
       this.contents.splice(index, 1);
+      console.log("test");
+      if (this.is_root) {
+        this.$emit("delete-event");
+      }
     },
   },
 };

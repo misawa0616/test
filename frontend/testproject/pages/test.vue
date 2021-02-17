@@ -3,7 +3,7 @@
     <template v-for="(test, index) in test_list">
       {{ test.label }}
       <test-list
-        :is_add="true"
+        :is_root="true"
         :key="temp_test_list[index]"
         :contents="test['contents']"
         classA=" test123 test"
@@ -22,14 +22,90 @@ export default {
   mixins: [count],
   data() {
     return {
-      test_list: [],
+      test_list: [
+        {
+          label: "",
+          contents: [
+            {
+              type: 3,
+              argument: [
+                { key_label: "キー", key_value: "test1" },
+                { key_label: "開始", key_value: "4" },
+                { key_label: "終了", key_value: "4" },
+              ],
+              contents: [
+                {
+                  if_value: "2",
+                  contents: [
+                    {
+                      type: 2,
+                      argument: [
+                        { key_label: "キー", key_value: "test3" },
+                        { key_label: "x軸", key_value: "219" },
+                        { key_label: "y軸", key_value: "219" },
+                      ],
+                      contents: [],
+                    },
+                    {
+                      type: 2,
+                      argument: [
+                        { key_label: "キー", key_value: "test3" },
+                        { key_label: "x軸", key_value: "419" },
+                        { key_label: "y軸", key_value: "419" },
+                      ],
+                      contents: [],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          label: "",
+          contents: [
+            {
+              type: 2,
+              argument: [
+                { key_label: "キー", key_value: "test3" },
+                { key_label: "x軸", key_value: "100" },
+                { key_label: "y軸", key_value: "100" },
+              ],
+              contents: [],
+            },
+          ],
+        },
+        {
+          label: "",
+          contents: [
+            {
+              type: 2,
+              argument: [
+                { key_label: "キー", key_value: "test3" },
+                { key_label: "x軸", key_value: "400" },
+                { key_label: "y軸", key_value: "600" },
+              ],
+              contents: [],
+            },
+          ],
+        },
+      ],
       label: "",
     };
   },
   methods: {
     add_methods() {
       this.add_temp();
-      this.test_list.push({ label: this.label, contents: [] });
+      this.test_list.push({
+        label: this.label,
+        contents: [
+          {
+            type: "",
+            argument: [],
+            contents: [],
+          },
+        ],
+      });
     },
     delete_methods(index) {
       this.delete_temp(index);
